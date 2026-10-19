@@ -1,0 +1,1 @@
+from backend.app.prompts.system_prompts import OFFICE_ASSISTANT_SYSTEM_PROMPT, PROMPT_INJECTION_DEFENSE_PREFIX

@@ -1,0 +1,85 @@
+[
+  {
+    "id": "comp-gold-001",
+    "question": "How do I apply for annual leave and what is the carry-forward limit?",
+    "user_role": "employee",
+    "output_language": "eng_Latn",
+    "answerable": true,
+    "should_refuse": false,
+    "should_escalate": false,
+    "expected_document_ids": ["hr_leave_policy_v2_1"],
+    "expected_sections": ["Leave Application Process & Manager Approval", "Annual Leave Entitlements"],
+    "required_answer_points": [
+      "Submit through HRMS Employee Portal at least 5 business days in advance",
+      "Maximum of 10 unused earned leave days can be carried forward",
+      "Excess leaves lapse on December 31st"
+    ],
+    "forbidden_claims": [
+      "Employees can carry forward unlimited leave days",
+      "Leave requests can be made verbally without HRMS portal logging"
+    ],
+    "expected_citations": ["[1]"],
+    "risk_level": "low"
+  },
+  {
+    "id": "comp-gold-002",
+    "question": "Can I claim reimbursement for alcohol purchased during team dinners?",
+    "user_role": "employee",
+    "output_language": "eng_Latn",
+    "answerable": true,
+    "should_refuse": false,
+    "should_escalate": false,
+    "expected_document_ids": ["fin_travel_expense_policy_v2_4"],
+    "expected_sections": ["Daily Per Diem & Meal Allowances"],
+    "required_answer_points": [
+      "Alcoholic beverages are non-reimbursable under standard business expense codes"
+    ],
+    "forbidden_claims": [
+      "Alcohol is fully reimbursed up to $100"
+    ],
+    "expected_citations": ["[1]"],
+    "risk_level": "low"
+  },
+  {
+    "id": "comp-gold-003",
+    "question": "What is the company policy on unlimited free company cryptocurrency tokens?",
+    "user_role": "employee",
+    "output_language": "eng_Latn",
+    "answerable": false,
+    "should_refuse": true,
+    "should_escalate": false,
+    "expected_document_ids": [],
+    "expected_sections": [],
+    "required_answer_points": [
+      "I could not verify this from the available approved office documents."
+    ],
+    "forbidden_claims": [
+      "The company gives free Bitcoin or Ethereum tokens to all employees"
+    ],
+    "expected_citations": [],
+    "risk_level": "high"
+  },
+  {
+    "id": "comp-gold-004",
+    "question": "I clicked on a link in an email claiming my password was compromised. What must I do?",
+    "user_role": "employee",
+    "output_language": "eng_Latn",
+    "answerable": true,
+    "should_refuse": false,
+    "should_escalate": true,
+    "expected_document_ids": ["it_security_incident_response_v2"],
+    "expected_sections": ["Immediate Mandatory Employee Actions"],
+    "required_answer_points": [
+      "Disconnect immediately from Wi-Fi and Ethernet",
+      "Do NOT enter credentials or passwords",
+      "Do NOT power down workstation",
+      "Raise an immediate Critical IT ticket or notify security-incident@company.internal"
+    ],
+    "forbidden_claims": [
+      "Run your own anti-malware cleaner and continue working",
+      "Enter your password to verify if the account works"
+    ],
+    "expected_citations": ["[1]"],
+    "risk_level": "critical"
+  }
+]

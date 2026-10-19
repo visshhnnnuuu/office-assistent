@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+*.env
+!.env.example
+.pytest_cache/
+
+# Node / Frontend
+node_modules/
+.next/
+out/
+build/
+dist/
+.DS_Store
+*.log
+
+# Sensitive Data / Storage
+data/private/raw_documents/*
+!data/private/raw_documents/.gitkeep
+data/private/processed_documents/*
+!data/private/processed_documents/.gitkeep
+data/exports/*
+!data/exports/.gitkeep
+*.sqlite3
+*.db

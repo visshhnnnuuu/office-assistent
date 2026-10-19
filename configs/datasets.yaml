@@ -1,0 +1,276 @@
+# ==============================================================================
+# Hugging Face Dataset Registry Configuration
+# NOTE: Public datasets are strictly isolated from private production knowledge!
+# ==============================================================================
+
+version: "1.0"
+governance:
+  require_license_acceptance: true
+  enable_voice_datasets: false
+  default_redaction_pii: true
+  max_sample_records_default: 1000
+
+datasets:
+  # ----------------------------------------------------------------------------
+  # A. Multilingual Datasets
+  # ----------------------------------------------------------------------------
+  - name: "ai4bharat/IndicQA"
+    category: "multilingual"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/IndicQA"
+    license: "CC-BY-4.0"
+    languages: ["hi", "ml", "en"]
+    splits: ["test"]
+    streaming_default: false
+    enabled: true
+    description: "Context-grounded QA evaluation for Indic languages (Hindi, Malayalam, English)."
+
+  - name: "ai4bharat/MSMARCO-XI"
+    category: "multilingual"
+    purpose: "public_retrieval_benchmark"
+    namespace: "public_retrieval_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/MSMARCO-XI"
+    license: "CC-BY-4.0"
+    languages: ["hi", "ml", "en"]
+    splits: ["dev", "train"]
+    streaming_default: true
+    enabled: true
+    description: "Multilingual and cross-lingual passage retrieval benchmark."
+
+  - name: "ai4bharat/IN22-Conv"
+    category: "multilingual"
+    purpose: "public_translation_benchmark"
+    namespace: "public_translation_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/IN22-Conv"
+    license: "CC-BY-4.0"
+    languages: ["en", "hi", "ml"]
+    splits: ["test"]
+    streaming_default: false
+    enabled: true
+    description: "Conversational English-Hindi-Malayalam evaluation for translation fidelity."
+
+  - name: "ai4bharat/IN22-Gen"
+    category: "multilingual"
+    purpose: "public_translation_benchmark"
+    namespace: "public_translation_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/IN22-Gen"
+    license: "CC-BY-4.0"
+    languages: ["en", "hi", "ml"]
+    splits: ["test"]
+    streaming_default: false
+    enabled: true
+    description: "General translation benchmark for regression testing."
+
+  - name: "ai4bharat/indic-instruct-data-v0.1"
+    category: "multilingual"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/indic-instruct-data-v0.1"
+    license: "Research / Non-Commercial"
+    languages: ["hi"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Optional Hindi instruction-format dataset. Disabled until license review."
+
+  - name: "SandLogicTechnologies/Indic_Chat_Dataset"
+    category: "multilingual"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/SandLogicTechnologies/Indic_Chat_Dataset"
+    license: "Apache-2.0"
+    languages: ["hi", "en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Indic conversational chat dataset for format experimentation. Disabled by default."
+
+  # ----------------------------------------------------------------------------
+  # B. IT / Helpdesk Datasets
+  # ----------------------------------------------------------------------------
+  - name: "Console-AI/IT-helpdesk-synthetic-tickets"
+    category: "it_helpdesk"
+    purpose: "public_it_training"
+    namespace: "public_it_training"
+    dataset_card_url: "https://huggingface.co/datasets/Console-AI/IT-helpdesk-synthetic-tickets"
+    license: "MIT"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: false
+    enabled: true
+    description: "Synthetic IT tickets for category and priority classification with PII redaction."
+
+  - name: "w1z4rd3k/it-support-l1-ticket-classification"
+    category: "it_helpdesk"
+    purpose: "public_it_training"
+    namespace: "public_it_training"
+    dataset_card_url: "https://huggingface.co/datasets/w1z4rd3k/it-support-l1-ticket-classification"
+    license: "MIT"
+    languages: ["en"]
+    splits: ["train", "test"]
+    streaming_default: false
+    enabled: true
+    description: "Level-1 intent routing, priority and ticket-needed classification."
+
+  - name: "benjaminmacklin/IT_Support_V2"
+    category: "it_helpdesk"
+    purpose: "public_it_training"
+    namespace: "public_it_training"
+    dataset_card_url: "https://huggingface.co/datasets/benjaminmacklin/IT_Support_V2"
+    license: "Apache-2.0"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Broad technical support response analysis. Stream and sample only; disabled by default."
+
+  - name: "mindweave/help-desk-tickets"
+    category: "it_helpdesk"
+    purpose: "public_it_training"
+    namespace: "public_it_training"
+    dataset_card_url: "https://huggingface.co/datasets/mindweave/help-desk-tickets"
+    license: "Commercial restricted / Sample only"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Ticket lifecycle, SLA, and escalation experiment dataset. Use free sample only."
+
+  - name: "MakTek/Customer_support_faqs_dataset"
+    category: "it_helpdesk"
+    purpose: "public_it_training"
+    namespace: "public_it_training"
+    dataset_card_url: "https://huggingface.co/datasets/MakTek/Customer_support_faqs_dataset"
+    license: "MIT"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: false
+    enabled: false
+    description: "Generic FAQ format test data."
+
+  # ----------------------------------------------------------------------------
+  # C. RAG Evaluation / Benchmark Datasets
+  # ----------------------------------------------------------------------------
+  - name: "dwb2023/ragas-golden-dataset"
+    category: "rag_benchmarks"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/dwb2023/ragas-golden-dataset"
+    license: "Apache-2.0"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: false
+    enabled: true
+    description: "Primary RAG evaluation schema (user_input, reference_contexts, reference)."
+
+  - name: "llmware/rag_instruct_benchmark_tester"
+    category: "rag_benchmarks"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/llmware/rag_instruct_benchmark_tester"
+    license: "Apache-2.0"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: false
+    enabled: true
+    description: "Enterprise-style RAG evaluation with query, context, and ground truth answer."
+
+  - name: "vectara/open_ragbench"
+    category: "rag_benchmarks"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/vectara/open_ragbench"
+    license: "Apache-2.0"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "PDF ingestion, long-document retrieval, page-level citation tests. Disabled by default."
+
+  - name: "ingalepratap/EnterpriseRAG-Bench"
+    category: "rag_benchmarks"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/ingalepratap/EnterpriseRAG-Bench"
+    license: "Research"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Enterprise-scale benchmark. Very large; streaming mode only; disabled by default."
+
+  - name: "grasson/t2-ragbench"
+    category: "rag_benchmarks"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/grasson/t2-ragbench"
+    license: "MIT"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Table and document RAG with numeric retrieval. Disabled by default."
+
+  - name: "ruslanmv/moc-rag-benchmark"
+    category: "rag_benchmarks"
+    purpose: "public_evaluation"
+    namespace: "public_evaluation"
+    dataset_card_url: "https://huggingface.co/datasets/ruslanmv/moc-rag-benchmark"
+    license: "Apache-2.0"
+    languages: ["en"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Routed context, distractor, and agent-memory benchmark. Disabled by default."
+
+  # ----------------------------------------------------------------------------
+  # D. Voice Datasets (Must remain disabled unless ENABLE_VOICE_DATASETS=true)
+  # ----------------------------------------------------------------------------
+  - name: "ai4bharat/IndicVoices"
+    category: "voice"
+    purpose: "public_voice_benchmark"
+    namespace: "public_voice_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/IndicVoices"
+    license: "CC-BY-4.0"
+    languages: ["hi", "ml"]
+    splits: ["test"]
+    streaming_default: true
+    enabled: false
+    description: "Indic speech corpus. Disabled unless ENABLE_VOICE_DATASETS=true."
+
+  - name: "snorbyte/indic-audio-dialog-sample"
+    category: "voice"
+    purpose: "public_voice_benchmark"
+    namespace: "public_voice_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/snorbyte/indic-audio-dialog-sample"
+    license: "CC-BY-4.0"
+    languages: ["hi"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Audio dialog sample. Disabled by default."
+
+  - name: "snorbyte/indic-audio-natural-conversations-sample"
+    category: "voice"
+    purpose: "public_voice_benchmark"
+    namespace: "public_voice_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/snorbyte/indic-audio-natural-conversations-sample"
+    license: "CC-BY-4.0"
+    languages: ["hi"]
+    splits: ["train"]
+    streaming_default: true
+    enabled: false
+    description: "Indic audio natural conversation samples. Disabled by default."
+
+  - name: "ai4bharat/Rasa"
+    category: "voice"
+    purpose: "public_voice_benchmark"
+    namespace: "public_voice_benchmark"
+    dataset_card_url: "https://huggingface.co/datasets/ai4bharat/Rasa"
+    license: "CC-BY-4.0"
+    languages: ["hi", "ml"]
+    splits: ["test"]
+    streaming_default: true
+    enabled: false
+    description: "Indic speech recognition evaluation dataset. Disabled by default."

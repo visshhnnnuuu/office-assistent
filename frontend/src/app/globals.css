@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-claude-bg text-claude-text antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4CBBF;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BAAF9F;
+}
+
+/* Citation badges */
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #C96442;
+  background-color: #F3ECE3;
+  border: 1px solid #E8E2D9;
+  border-radius: 9999px;
+  padding: 0 0.4rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  vertical-align: baseline;
+  transition: all 0.15s ease-in-out;
+}
+
+.citation-badge:hover {
+  background-color: #E6D7C8;
+  border-color: #C96442;
+}
+
+/* Markdown prose enhancements */
+.prose-claude h1, .prose-claude h2, .prose-claude h3 {
+  font-weight: 600;
+  color: #1F1E1D;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-claude h3 {
+  font-size: 1.05rem;
+  border-bottom: 1px solid #EFEAE3;
+  padding-bottom: 0.25rem;
+}
+
+.prose-claude ul, .prose-claude ol {
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-claude li {
+  margin-bottom: 0.25rem;
+}
+
+.prose-claude table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.prose-claude th, .prose-claude td {
+  border: 1px solid #E8E2D9;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose-claude th {
+  background-color: #F5EFEB;
+  font-weight: 600;
+}

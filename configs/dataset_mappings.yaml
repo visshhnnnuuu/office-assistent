@@ -1,0 +1,119 @@
+# ==============================================================================
+# Dynamic Dataset Field Mappings & Canonical Intent Taxonomy
+# ==============================================================================
+
+# Canonical IT Helpdesk Intent Taxonomy
+canonical_intents:
+  - password_reset
+  - account_locked
+  - mfa_issue
+  - email_issue
+  - wifi_issue
+  - vpn_issue
+  - printer_issue
+  - hardware_issue
+  - software_installation
+  - software_error
+  - access_request
+  - asset_request
+  - security_incident
+  - ticket_status
+  - general_it_policy
+  - unknown
+
+# Canonical Priorities
+canonical_priorities:
+  - critical
+  - high
+  - medium
+  - low
+
+# Dataset specific field candidates and mappings
+mappings:
+  "ai4bharat/IndicQA":
+    target_case: "EvaluationCase"
+    namespace: "public_evaluation"
+    category: "rag_qa"
+    fields:
+      question: ["question", "query", "question_text"]
+      reference_contexts: ["context", "passage", "paragraph", "contexts"]
+      reference_answer: ["answer", "answers.text[0]", "reference_answer"]
+      language: ["language", "lang", "locale"]
+      source_record_id: ["id", "question_id", "idx"]
+
+  "ai4bharat/MSMARCO-XI":
+    target_case: "RetrievalBenchmarkCase"
+    namespace: "public_retrieval_benchmark"
+    fields:
+      query: ["query", "question", "query_text"]
+      query_language: ["query_language", "lang", "language"]
+      positive_passages: ["positive_passages", "positives", "positive"]
+      negative_passages: ["negative_passages", "negatives", "negative"]
+      source_record_id: ["query_id", "id", "qid"]
+
+  "ai4bharat/IN22-Conv":
+    target_case: "TranslationBenchmarkCase"
+    namespace: "public_translation_benchmark"
+    domain: "conversation"
+    fields:
+      source_text: ["source", "sentence_eng", "en", "source_text"]
+      reference_translation: ["target", "sentence_tgt", "translation", "reference"]
+      source_language: ["source_language", "src_lang"]
+      target_language: ["target_language", "tgt_lang"]
+
+  "ai4bharat/IN22-Gen":
+    target_case: "TranslationBenchmarkCase"
+    namespace: "public_translation_benchmark"
+    domain: "general"
+    fields:
+      source_text: ["source", "sentence_eng", "en", "source_text"]
+      reference_translation: ["target", "sentence_tgt", "translation", "reference"]
+      source_language: ["source_language", "src_lang"]
+      target_language: ["target_language", "tgt_lang"]
+
+  "Console-AI/IT-helpdesk-synthetic-tickets":
+    target_case: "ITTicketCase"
+    namespace: "public_it_training"
+    fields:
+      subject: ["subject", "title", "summary", "issue"]
+      description: ["description", "body", "ticket_body", "details"]
+      intent: ["category", "issue_type", "intent", "class"]
+      priority: ["priority", "severity", "urgency"]
+    intent_translation:
+      "Password Reset": "password_reset"
+      "Account Access": "access_request"
+      "Account Locked": "account_locked"
+      "VPN Issues": "vpn_issue"
+      "Network/Wi-Fi": "wifi_issue"
+      "Software Request": "software_installation"
+      "Security / Phishing": "security_incident"
+      "Hardware Failure": "hardware_issue"
+      "Email Configuration": "email_issue"
+
+  "w1z4rd3k/it-support-l1-ticket-classification":
+    target_case: "ITTicketCase"
+    namespace: "public_it_training"
+    fields:
+      subject: ["subject", "short_description", "title"]
+      description: ["description", "text", "body"]
+      intent: ["label", "intent", "category"]
+      priority: ["priority", "urgency"]
+
+  "dwb2023/ragas-golden-dataset":
+    target_case: "EvaluationCase"
+    namespace: "public_evaluation"
+    category: "rag_qa"
+    fields:
+      question: ["user_input", "question", "query"]
+      reference_contexts: ["reference_contexts", "contexts", "ground_truth_context"]
+      reference_answer: ["reference", "ground_truth", "response"]
+      source_record_id: ["id", "index"]
+
+  "llmware/rag_instruct_benchmark_tester":
+    target_case: "EvaluationCase"
+    namespace: "public_evaluation"
+    category: "rag_qa"
+    fields:
+      question: ["query", "question", "instruction"]
+      reference_contexts: ["context", "passages"]
+      reference_answer: ["answer", "ground_truth", "target"]
